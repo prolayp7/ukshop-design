@@ -6,6 +6,16 @@
 var S = Shop, E = S.esc, M = S.money;
 function ic(id,w,h){ return '<svg width="'+w+'" height="'+(h||w)+'"><use href="#'+id+'"/></svg>'; }
 function icv(id,w,h){ return '<svg viewBox="0 0 64 44" style="width:'+w+'px;height:'+h+'px"><use href="#'+id+'"/></svg>'; }
+/* A handful of catalogue items have a real product-style photo available
+   (sourced with the client's confirmation); everything else keeps the
+   line-icon treatment rather than mixing in a mismatched placeholder. */
+var PHOTO = { 83:"images/stock-headset-white.png", 84:"images/stock-headset-red.png",
+              87:"images/stock-speaker.jpg", 80:"images/stock-mouse.jpg" };
+function fig(p,w,h){
+  return PHOTO[p.id]
+    ? '<img src="'+PHOTO[p.id]+'" alt="" style="width:'+w+'px;height:'+h+'px;object-fit:contain">'
+    : icv(p.icon,w,h);
+}
 
 function header(){
   return '<div class="wrap"><div class="frame"><div class="mast">'+
@@ -40,7 +50,7 @@ function card(p){
   return '<article class="card">'+
     '<div class="tags">'+(p.was ? '<span class="tg">-'+Math.round((p.was-p.price)/p.was*100)+'%</span>' : "")+(p.isNew ? '<span class="tg new">NEW</span>' : "")+'</div>'+
     '<button class="fav">'+ic("i-heart",16,16)+'</button>'+
-    '<a class="im" href="'+S.url("product",{id:p.id})+'">'+icv(p.icon,150,104)+'</a>'+
+    '<a class="im" href="'+S.url("product",{id:p.id})+'">'+fig(p,150,104)+'</a>'+
     '<div class="bd"><div class="mrow"><a href="'+S.url("brand",{b:p.brand})+'">'+E(p.brand)+'</a><span>'+E(p.sku)+'</span></div>'+
     '<h3><a href="'+S.url("product",{id:p.id})+'">'+E(p.name)+'</a></h3>'+
     '<div class="rate"><i>'+S.stars(p.rating)+'</i>'+p.rating+' · '+p.reviews.toLocaleString("en-GB")+'</div>'+
@@ -67,7 +77,7 @@ function productPage(){
   document.getElementById("app").innerHTML = header() + crumbs(d.crumbs) +
     '<div class="wrap"><div class="pd">'+
       '<div class="gal">'+
-        '<div class="main"><svg viewBox="0 0 64 44" style="width:280px;height:210px"><use href="#'+p.icon+'"/></svg></div>'+
+        '<div class="main">'+fig(p,280,210)+'</div>'+
         '<div class="thumbs"><span class="on">'+icv(p.icon,44,34)+'</span><span>'+icv(p.icon,44,34)+'</span><span>'+icv(p.icon,44,34)+'</span><span>'+icv(p.icon,44,34)+'</span></div>'+
       '</div>'+
       '<div class="pdinfo">'+
