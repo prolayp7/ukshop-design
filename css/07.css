@@ -80,7 +80,7 @@ h1,h2,h3{margin:0;font-family:var(--display);letter-spacing:-.02em;font-weight:7
 .mini .go{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;z-index:3}
 
 /* bento bottom row */
-.bento-bottom{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:16px;margin-bottom:8px}
+.bento-bottom{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:16px;margin-top:16px}
 .bcell{background:var(--surf);border-radius:var(--r-sm);padding:20px;position:relative}
 .bcell h4{font-size:13.5px;font-weight:700;margin:0 0 3px}
 .bcell span.sub{font-size:11.5px;color:var(--dim)}
