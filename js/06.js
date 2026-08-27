@@ -42,7 +42,7 @@ function crumbs(list){
 function card(p){
   var st = S.stockText(p), keys = Object.keys(p.specs).slice(0,4);
   return '<article class="card">'+
-    '<div class="tags">'+(p.was ? '<span class="tg">-'+Math.round((p.was-p.price)/p.was*100)+'%</span>' : "")+(p.isNew ? '<span class="tg" style="background:var(--teal)">NEW</span>' : "")+'</div>'+
+    '<div class="tags">'+(p.was ? '<span class="tg">-'+Math.round((p.was-p.price)/p.was*100)+'%</span>' : "")+(p.isNew ? '<span class="tg new">NEW</span>' : "")+'</div>'+
     '<button class="fav">'+ic("i-heart",18,18)+'</button>'+
     '<a class="im" href="'+S.url("product",{id:p.id})+'">'+icv(p.icon,150,104)+'</a>'+
     '<div class="bd"><div class="mrow"><a href="'+S.url("brand",{b:p.brand})+'" style="color:var(--ion-soft)">'+E(p.brand)+'</a><span>'+E(p.sku)+'</span></div>'+
