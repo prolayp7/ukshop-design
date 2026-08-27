@@ -207,8 +207,8 @@ function home(){
         "The flagship,<br>fully<br><em>verified.</em>",
         "Our top-tier graphics card, bench-tested on arrival and re-checked before every despatch. If it is listed in stock, it has already been through the lab.", slide3)+
     '</div>'+
-    '<button class="hero-arrow prev" aria-label="Previous slide"><svg width="18" height="18"><use href="#i-chev" transform="rotate(90 12 12)"/></svg></button>'+
-    '<button class="hero-arrow next" aria-label="Next slide"><svg width="18" height="18"><use href="#i-chev" transform="rotate(-90 12 12)"/></svg></button>'+
+    '<button class="hero-arrow prev" aria-label="Previous slide"><svg width="20" height="20" viewBox="0 0 24 24"><use href="#i-chev" transform="rotate(90 12 12)"/></svg></button>'+
+    '<button class="hero-arrow next" aria-label="Next slide"><svg width="20" height="20" viewBox="0 0 24 24"><use href="#i-chev" transform="rotate(-90 12 12)"/></svg></button>'+
     '<div class="hero-dots"><button class="on" aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button></div>'+
     '</div>'+
 
