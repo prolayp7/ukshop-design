@@ -42,8 +42,8 @@ code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.9em;background
 <body>
 <header><div class="w">
   <div class="k">UK Computer Shop · Phase 1</div>
-  <h1>Six design directions for the storefront</h1>
-  <p>Six directions, each covering the full shopping journey — home, category listing, product detail, brand, brand directory, basket, checkout and account — all built from the same catalogue data, so the comparison stays about design language and information density rather than content. Pick one, or tell me which parts of each to merge.</p>
+  <h1>Seven design directions for the storefront</h1>
+  <p>Seven directions, each covering the full shopping journey — home, category listing, product detail, brand, brand directory, basket, checkout and account — all built from the same catalogue data, so the comparison stays about design language and information density rather than content. Pick one, or tell me which parts of each to merge.</p>
 </div></header>
 
 <div class="w"><div class="grid">
@@ -126,9 +126,26 @@ code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.9em;background
       <span class="open">Open home page →</span><span class="pages"><a href="06-category.html?cat=PC%20Components">Category</a><a href="06-product.html?id=1">Product</a><a href="06-brand.html?b=Corsair">Brand</a><a href="06-brands.html">Brands</a><a href="06-basket.html">Basket</a><a href="06-checkout.html">Checkout</a><a href="06-account.html">Account</a></span>
     </div>
   </div>
+
+  <div class="c wide" data-href="07-aura.html">
+    <div class="sw"><i style="background:#eceae1"></i><i style="background:#d6fa3a"></i><i style="background:#14141a"></i><i style="background:#3b6ff0"></i><i style="background:#ff8a33"></i></div>
+    <div class="cb">
+      <div class="n">DIRECTION G · NEW</div><h2>Aura</h2>
+      <span class="tag" style="background:#eef7c2;color:#5a6b00">Light bento-grid · consumer gadget</span>
+      <p>Modelled after a Nitec-style gadget storefront: a soft cream canvas, one lime accent, and a bento grid of rounded cards instead of full-width sections. The only light-mode design here besides Atelier, and the only bento layout in the set.</p>
+      <ul>
+        <li>Bento hero: nav, numbered slide ("01 &mdash;&mdash; &rarr;") carousel and a sidebar of small tease cards, all inside one big rounded frame</li>
+        <li>Hanken Grotesk for both display and body copy, plus DM Mono for spec labels &mdash; a pairing not used anywhere else in the seven</li>
+        <li>One accent colour (lime, #D6FA3A) reserved for primary actions; a small row of decorative swatch dots is content, not chrome</li>
+        <li>Everything rounded &mdash; 24px bento cards, pill buttons, circular icon buttons &mdash; no hard edges anywhere</li>
+        <li>Covers all eight page types like the other six</li>
+      </ul>
+      <span class="open">Open home page →</span><span class="pages"><a href="07-category.html?cat=PC%20Components">Category</a><a href="07-product.html?id=83">Product</a><a href="07-brand.html?b=Logitech">Brand</a><a href="07-brands.html">Brands</a><a href="07-basket.html">Basket</a><a href="07-checkout.html">Checkout</a><a href="07-account.html">Account</a></span>
+    </div>
+  </div>
 </div></div>
 
-<footer><div class="w">All six designs share one dummy catalogue (<code>data/products.js</code>, 104 products), one set of recommendation and compatibility rules (<code>js/shop.js</code>) and one basket/checkout implementation (<code>js/commerce.js</code>) — each design supplies only its own chrome, cards and stylesheet. The basket persists in <code>localStorage</code>; the checkout is a layout prototype that places no order and accepts no payment details. No build step, no framework. Pricing, stock and reviews are drawn from the shared dummy catalogue; company details shown are unmistakable placeholders pending real ones.</div></footer>
+<footer><div class="w">All seven designs share one dummy catalogue (<code>data/products.js</code>, 104 products), one set of recommendation and compatibility rules (<code>js/shop.js</code>) and one basket/checkout implementation (<code>js/commerce.js</code>) — each design supplies only its own chrome, cards and stylesheet. The basket persists in <code>localStorage</code>; the checkout is a layout prototype that places no order and accepts no payment details. No build step, no framework. Pricing, stock and reviews are drawn from the shared dummy catalogue; company details shown are unmistakable placeholders pending real ones.</div></footer>
 <script>
 document.querySelectorAll('.c[data-href]').forEach(function(c){
   c.addEventListener('click', function(e){ if (!e.target.closest('a')) location.href = c.dataset.href; });
