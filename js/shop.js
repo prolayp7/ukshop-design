@@ -767,13 +767,46 @@ function injectConsentBanner(){
     '<div class="btns"><button id="ukcs-consent-reject">Reject non-essential</button>' +
     '<button class="accept" id="ukcs-consent-accept">Accept all</button></div>';
   document.body.appendChild(el);
-  document.getElementById("ukcs-consent-accept").addEventListener("click", function(){ lsSet("consent", "all"); el.remove(); });
-  document.getElementById("ukcs-consent-reject").addEventListener("click", function(){ lsSet("consent", "essential"); el.remove(); });
+  document.getElementById("ukcs-consent-accept").addEventListener("click", function(){ lsSet("consent", "all"); el.remove(); positionBackToTop(); });
+  document.getElementById("ukcs-consent-reject").addEventListener("click", function(){ lsSet("consent", "essential"); el.remove(); positionBackToTop(); });
 }
 document.addEventListener("DOMContentLoaded", injectConsentBanner);
 
 document.addEventListener("DOMContentLoaded", refreshWishlistUI);
 document.addEventListener("DOMContentLoaded", refreshCompareUI);
+
+/* A plain scroll-to-top button — self-contained like the compare tray and
+   cookie banner above, so every design gets it for free with no per-design
+   CSS. Sits higher up while the cookie banner (full-width, bottom of
+   screen) is still showing, so the two never overlap. */
+function positionBackToTop(){
+  var el = document.getElementById("ukcs-totop");
+  if (el) el.style.bottom = (consentGiven() ? 20 : 92) + "px";
+}
+function ensureBackToTop(){
+  if (document.getElementById("ukcs-totop")) return;
+  var css = document.createElement("style");
+  css.textContent =
+    "#ukcs-totop{position:fixed;right:20px;bottom:20px;z-index:9995;width:46px;height:46px;border-radius:50%;"+
+    "background:#111;color:#fff;border:0;display:flex;align-items:center;justify-content:center;cursor:pointer;"+
+    "box-shadow:0 12px 30px -10px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(8px);"+
+    "transition:opacity .2s,transform .2s,bottom .2s,visibility 0s .2s}"+
+    "#ukcs-totop.on{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .2s,transform .2s,bottom .2s,visibility 0s}"+
+    "#ukcs-totop:hover{background:#000}";
+  document.head.appendChild(css);
+  var el = document.createElement("button");
+  el.id = "ukcs-totop";
+  el.type = "button";
+  el.setAttribute("aria-label", "Back to top");
+  el.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24"><use href="#i-arr" transform="rotate(-90 12 12)"/></svg>';
+  el.addEventListener("click", function(){ window.scrollTo({ top:0, behavior:"smooth" }); });
+  document.body.appendChild(el);
+  var onScroll = function(){ el.classList.toggle("on", window.scrollY > 480); };
+  window.addEventListener("scroll", onScroll, { passive:true });
+  onScroll();
+  positionBackToTop();
+}
+document.addEventListener("DOMContentLoaded", ensureBackToTop);
 
 root.Shop = {
   all:P, byId:byId, related:related, alsoBought:alsoBought, recommended:recommended,
