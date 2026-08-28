@@ -67,7 +67,7 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;font-weight:600}
 /* nav + mega */
 .nav{background:var(--ink);color:#e9e9ea;position:sticky;top:0;z-index:60}
 .nav .wrap{display:flex;align-items:stretch;gap:2px}
-.nav .alldept{display:flex;align-items:center;gap:11px;background:var(--volt);color:var(--ink);padding:0 22px;font-weight:600;font-size:14px;white-space:nowrap}
+.nav .alldept{display:flex;align-items:center;gap:11px;background:var(--volt);color:var(--ink);padding:0 22px;font-weight:600;font-size:14px;white-space:nowrap;height:100%}
 .nav a.top{display:flex;align-items:center;gap:8px;padding:0 16px;height:52px;font-size:14px;font-weight:500;color:#d4d4d8}
 .nav a.top:hover{color:var(--volt)}
 .nav .hot{color:var(--volt)!important}
